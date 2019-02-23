@@ -79,7 +79,7 @@ pre {
   margin: .5em 0;
   padding: .3em;
   font-size: .8em;
-  background-color: #f2f2f2;
+  background-color: #e4e4e4;
 }
 /* ------------------- */
 /* ----- BUTTONS ----- */
@@ -252,7 +252,10 @@ footer small {
       ". s s s s s s ."
       ". f f f f f f .";
     padding: .5em 0;
+    font-size: 20px;
   }
+
+  h2 { font-size: 1.5rem; }
 
   header {
     grid-area: h;
