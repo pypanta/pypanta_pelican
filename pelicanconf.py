@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Panta'
 SITENAME = 'PyPanta'
 SITEURL = 'https://pypanta.github.io'
+#SITEURL = 'http://localhost:8000/'
 #RELATIVE_URLS = True
 PATH = 'content'
 
