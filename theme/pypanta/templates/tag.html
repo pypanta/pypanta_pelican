@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ tag }} — {{ SITENAME }}{% endblock %}
+{% block content %}
+  {% for article in articles %}
+    <article>
+      <div class="article-info">
+      <h2><a href="{{ SITEURL }}/{{ article.url}}">{{ article.title }}</a></h2>
+      <small><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+        | by {{ article.author }} | in <a href="">{{ tag }}</a></small>
+      </div>
+      <div class="article-content">
+        {{ article.summary }}<br>
+        <a class="btn" href="{{ SITEURL }}/{{ article.url }}" title="Read more..."><i class="fab fa-readme"></i></a>
+      </div>
+    </article>
+  {% endfor %}
+{% endblock %}

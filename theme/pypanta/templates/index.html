@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ SITENAME }}{% endblock %}
+
+{% block content %}
+  {% for article in articles %}
+<article>
+    <div class="article-info">
+      <h2><a href="/{{ article.slug }}.html">{{ article.title }}</a></h2>
+      <small>Posted on: <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time> by Panta</small>
+    </div>
+    <div class="article-content">
+      {{ article.summary }}<br>
+      <a class="btn" href="/{{ article.slug }}.html" title="Read more..."><i class="fab fa-readme"></i></a>
+    </div>
+    {% if article.tags %}
+    <div class="article-tags">
+      <i class="fas fa-tags"></i>
+      {% for tag in article.tags %}
+      <small><a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a></small>
+      {% endfor %}
+    </div>
+    {% endif %}
+</article>
+  {% else %}
+    No Posts yet!
+  {% endfor %}
+{% endblock %}

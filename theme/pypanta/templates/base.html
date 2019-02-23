@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css"/>
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css"/>
+
+  <!-- So Firefox can bookmark->"abo this site" -->
+  {% if FEED_ALL_ATOM %}
+      <link href="{{ FEED_ALL_ATOM }}" rel="alternate" title="{{ SITENAME }}" type="application/atom+xml">
+  {% endif %}
+  {% if FEED_ATOM %}
+      <link href="{{ FEED_ATOM }}" rel="alternate" title="{{ SITENAME }}" type="application/atom+xml">
+  {% endif %}
+  {% if FEED_RSS %}
+      <link href="{{ FEED_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
+  {% endif %}
+  {% if FEED_ALL_RSS %}
+      <link href="{{ FEED_ALL_RSS }}" rel="alternate" title="{{ SITENAME }}" type="application/rss+xml">
+  {% endif %}
+</head>
+<body>
+  <!-- Header -->
+  <header>
+      <h1 id="sitename">PyPanta <span>Freelance Developer</span></h1>
+    <nav>
+      <ul class="unstyled-list">
+        <li><a href="/" title="Home">Home</a></li>
+      {% if DISPLAY_PAGES_ON_MENU %}
+			  {% for page in pages %}
+        <li><a href="{{ SITEURL }}/{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></li>
+			  {% endfor %}
+      {% endif %}
+        <li><a href="#" title="Portfolio">Portfolio</a></li>
+      </ul>
+  </header><!-- End Header -->
+
+  <!-- Section Main Content -->
+  <section class="content">
+    {% block content %}
+    {% endblock %}
+  </section><!-- End Section -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="categories">
+      <h3>Categories</h3>
+      {% for cat, null in categories %}
+      <ul class="unstyled-list">
+            <li {% if cat == category %}class="active"{% endif %}>
+              <a href="{{ SITEURL }}/{{ cat.url }}" title="{{ cat }}">{{ cat }}</a>
+            </li>
+      </ul>
+      {% endfor %}
+    </div>
+    <div class="social">
+      <ul class="unstyled-list">
+        <li><a href="{{ SITEURL }}/feeds/all.atom.xml" title="Atom Feed"><i class="fas fa-rss"></i></a></li>
+        <li><a href="" title="Google+"><i class="fab fa-google-plus-g"></i></a></li>
+        <li><a href="" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="" title="Github"><i class="fab fa-github"></i></a></li>
+      </ul>
+    </div>
+    <small>Copy &copy;2018 PyPanta.</small>
+  </footer><!-- End Footer -->
+
+  <script>
+    var colors = ["#0d47a1", "#00695c", "#FF8800", "#3E4551", "#9933CC", "#3F729B", "#c62828"];
+
+    var sq = document.querySelectorAll('.article-info');
+
+    for (i=0; i < sq.length; i++) {
+      sq[i].style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+    }
+  </script>
+
+  <script id="dsq-count-scr" src="//pypanta.disqus.com/count.js" async></script>
+</body>
+</html>

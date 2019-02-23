@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+<article>
+  <div class="article-info-detail">
+    <h2>{{ article.title }}</h2>
+    <small>Posted on: <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+      by {{ article.author }} in <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></small>
+  </div>
+  <div class="article-content-detail">
+    <p>{{ article.content }}</p>
+
+    {% if article.tags %}
+      <div class="article-tags">
+        <i class="fas fa-tags"></i>
+        {% for tag in article.tags %}
+          <small><a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a></small>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- DISQUS Comments -->
+    <div id="disqus_thread"></div>
+    <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://pypanta.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</article>
+{% endblock %}
