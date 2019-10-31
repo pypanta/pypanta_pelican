@@ -4,9 +4,10 @@ Date: 24-04-2013
 Category: Howto
 Tags: Django, Nginx, uWSGI, Ubuntu, Linux
 
-As a Python and Django developer, one of best and fastest ways to deploy my Web aplications is the combination of [Nginx](http://nginx.org/), the high-performance Web server and [uWSGI](http://projects.unbit.it/uwsgi/).
+As a Python and Django developer, one of best and fastest ways to deploy my Web aplications is the combination of the
+[Nginx](http://nginx.org/), the high-performance Web server, and [uWSGI](http://projects.unbit.it/uwsgi/).
 
-In this tutorial, I'll describe you how to install and configure Nginx, uWSGI, VirtualENV and Django on Ubuntu.
+In this tutorial, I'll show you how to install and configure Nginx, uWSGI, VirtualENV and Django on Ubuntu.
 
 To install all required applications, open a Terminal and run the following command:
 
@@ -105,7 +106,7 @@ Enable it:
 sudo ln-s /etc/uwsgi/apps-available/mysite.com.ini /etc/uwsgi/apps-enabled/
 ```
 
-And on the end, restart *nginx* and *uwsgi* services:
+And on the end, restart the *nginx* and *uwsgi* services:
 
 ```
 sudo service nginx restart

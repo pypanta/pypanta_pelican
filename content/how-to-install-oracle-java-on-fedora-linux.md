@@ -69,10 +69,3 @@ Check if Java is installed:
 java -version
 ```
 
-Also, I wrote [this little bash script](https://dl.dropboxusercontent.com/u/9196683/Fedora/java-install.sh)
-that allows you to install Oracle Java with a single command in Terminal.
-All you need to do is to run a script as root user:
-
-```
-sh java-install.sh
-```
