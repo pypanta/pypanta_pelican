@@ -21,7 +21,7 @@ cd ~/projects
 virtualenv venv
 ```
 
-Activate him with a command:
+Activate it with a command:
 
 ```
 source venv/bin/activate
@@ -33,13 +33,13 @@ To install Django, you can use [pip](http://www.pip-installer.org/en/latest/) or
 pip install django
 ```
 
-Create new Django project:
+Create a new Django project:
 
 ```
 django-admin.py startproject mysite
 ```
 
-Now, in **/etc/nginx/sites-available** directory, create new file called **mysite.com**:
+Now, in **/etc/nginx/sites-available** directory, create a new file called **mysite.com**:
 
 ```
 sudo nano /etc/nginx/sites-available/mysite.com
@@ -77,7 +77,7 @@ To activate it, you need to create a symbolic link for a file in **/etc/nginx/si
 sudo ln -s /etc/nginx/sites-available/mysite.com /etc/nginx/sites-enabled/
 ```
 
-Configuration files for uWSGI are stored in **/etc/uwsgi/apps-available**. In this directory create new file called **mysite.com.ini**:
+Configuration files for uWSGI are stored in **/etc/uwsgi/apps-available**. In this directory create a new file called **mysite.com.ini**:
 
 ```
 sudo nano /etc/uwsgi/apps-available/mysite.com.ini
@@ -105,7 +105,7 @@ Enable it:
 sudo ln-s /etc/uwsgi/apps-available/mysite.com.ini /etc/uwsgi/apps-enabled/
 ```
 
-And to the end, restart a services:
+And on the end, restart *nginx* and *uwsgi* services:
 
 ```
 sudo service nginx restart
